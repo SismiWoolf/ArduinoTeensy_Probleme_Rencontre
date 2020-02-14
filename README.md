@@ -69,7 +69,7 @@ Serial.println(" Entre dans Seuil ");
                  return;
          }
       else if((aleatoire >= typeSeuil[3])&&((typeSeuil[3] < typeSeuil[0])||(typeSeuil[0] < typeSeuil[1]))){
-                 S3 = true;
+                 S3 = true;        // Ci-dessus pourtant bien comparer typeSeuil[0] puisque S3 s'active en true dans le serie.
                  return;
          }else{ Serial.println(" ========  Autre condition  <2  ============= ");
               }
