@@ -1,4 +1,6 @@
-/*    14_Fev_2020    6eme
+/*    14_Fev_2020    6eme  >fonctionne (doute sur une bricolle)  
+ *                                 Voir le 7e PRBLEME_Appel_Tableu.ino  puis aller dans le série de L'IDE Arduino 
+ *                                 J'ai un Teensy3.2 sa doit être pareil sur UNO Arduino
  * ***************  RECHERCHE PROBLEME INDEX TABLEAU deroulement
  */
 int aleatoire;
