@@ -1,78 +1,24 @@
-/*    14_Fev_2020    6eme  >fonctionne (doute sur une bricolle)  
- *                                 Voir le 7e PRBLEME_Appel_Tableu.ino  puis aller dans le série de L'IDE Arduino 
- *                                 J'ai un Teensy3.2 sa doit être pareil sur UNO Arduino
- * ***************  RECHERCHE PROBLEME INDEX TABLEAU deroulement
- */
-int aleatoire;
-unsigned long duree = 0ul;
-int typeSeuil[] {15, 3, 8, 12};
-bool SB = false;
-bool SH = false;
-bool S1 = false;
-bool S2 = false;
-bool S3 = false;
+PROBLEME sur 2 sketch PROBLEME_Appel_Tableau.ino PROBLEME_Tableau_corrige.ino
 
-void setup() {
-Serial.begin(9600);
-while(!Serial);
-Serial.println("Simulation depassement de seuil declancheur 6eme ");
-delay(500);
-}
+      else if((aleatoire >= typeSeuil[3])&&((typeSeuil[3] < typeSeuil[0])||(typeSeuil[0] < typeSeuil[1]))){   // S3
+                 S3 = true;        
+     Tombe dans S3 si SH apres se else if, cela fonctionne vraiment de bas en haut dans le programme et pourrait servir
+     
+     
+     Correction non presente sur les 2 sketch mentionner sauf sur PROBLEME_plonge_dans_S3_16_Fev_2020.ino
+     => else if((aleatoire >= typeSeuil[3])&&(((typeSeuil[3] < typeSeuil[0])&&(aleatoire < typeSeuil[0]))||(typeSeuil[0] < typeSeuil[1]))){ 
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     ==========================================================================================================================================
+     J'ai également effectué un sketch calibrage et etalonnage 3 capteur et 8 seuils (sous et sur l'activité des capteur).
+     
+     Mais j'ai le projet de condamner les capteur en cas de panne, même avoir la possibilité au montage de la borne de rentrer dans le programme pour mettre à "false" les capteurs non monter.
 
-void loop() {
-  delay(2000);
- aleatoire = random(20);
- duree = millis();
- Seuil();
-   duree = millis() - duree;
- // Affiche();
- Serial.print(" Le chiffre est     ==> ");
-Serial.println(aleatoire);
-Serial.println("SB  S1  S2  S3  SH");
-Serial.println(" 2  3   8   12  18");
-Serial.print(SB);
-Serial.print("   ");
-Serial.print(S1);
-Serial.print("   ");
-Serial.print(S2);
-Serial.print("   ");
-Serial.print(S3);
-Serial.print("   ");
-Serial.println(SH);
-Serial.println("   ");
-Serial.print("Duree est à =>  ");
-Serial.println(duree);
-delay(30);}
-
-void Seuil(){
-Serial.println(" Entre dans Seuil ");
-
-
-      if((aleatoire >= typeSeuil[0])&&(aleatoire >= typeSeuil[3])){  // mise en marche à 15 (typeSeuil[0] est à 18) ne devrait pas entré dans la condition.
-                 SH = true;
-                 SB = false;
-                 typeSeuil[0] = 2;
-                 Serial.println(" ========================  TypeSeuil 0, est mis à 2");
-                 return;
-         }
-      else if((aleatoire >= typeSeuil[0])&&(aleatoire <= typeSeuil[1])){
-                 SB = true;
-                 SH = false;
-                 typeSeuil[0] = 18;
-                 Serial.println(" ========================  TypeSeuil 0, est mis à 18");
-                 return;
-         }
-      else if((aleatoire >= typeSeuil[1])&&(aleatoire < typeSeuil[2])){
-                 S1 = true;
-                 return;
-         }
-      else if ((aleatoire >= typeSeuil[2])&&(aleatoire < typeSeuil[3])){
-                 S2 = true;
-                 return;
-         }
-      else if((aleatoire >= typeSeuil[3])&&((typeSeuil[3] < typeSeuil[0])||(typeSeuil[0] < typeSeuil[1]))){
-                 S3 = true;        // Ci-dessus pourtant bien comparer typeSeuil[0] puisque S3 s'active en true dans le serie.
-                 return;
-         }else{ Serial.println(" ========  Autre condition  <2  ============= ");
-              }
-}
