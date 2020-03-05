@@ -26,3 +26,6 @@ PROBLEME sur 2 sketch PROBLEME_Appel_Tableau.ino PROBLEME_Tableau_corrige.ino
       
       La communication sera très intense sur un cour moment pour la coordinnation, controle d'état... en suite le but d'un pré-calcul par la borne qui detecte une activité est de limité la communication. En conciderant que sa pollut l'environnement.
 
+4 Mars 2020
+La fatigue... j'avais fait 2 programmes, enfin 2 sketch liés au programme, le dernier est était que je butais sur des risques et du coup j'ai fais un petit sketch de comparaison si string, char, int float, est == true et >0.
+Il faut que teste char, savoir se qu'il met comme carractère non imprimable ou peut être caractère de fin de chaine....
